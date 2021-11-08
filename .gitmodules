@@ -1,0 +1,3 @@
+[submodule "nicfito-ui"]
+	path = nicfito-ui
+	url = ./src/main/nicfito-ui
