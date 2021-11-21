@@ -30,12 +30,13 @@ build/
 !**/src/test/**/build/
 
 ### VS Code ###
-src/main/ui/.vscode/
+src/ui/.vscode/
 
 
 .DS_Store
-src/main/ui/node_modules
-src/main/ui//dist
+src/ui/node_modules
+src/ui/node
+src//ui//dist
 
 
 # local env files
@@ -43,14 +44,14 @@ src/main/ui//dist
 .env.*.local
 
 # Log files
-src/main/ui/npm-debug.log*
-src/main/ui/yarn-debug.log*
-src/main/ui/yarn-error.log*
-src/main/ui/pnpm-debug.log*
+src/ui/npm-debug.log*
+src//ui/yarn-debug.log*
+src/ui/yarn-error.log*
+src/ui/pnpm-debug.log*
 
 # Editor directories and files
-src/main/ui/.idea
-src/main/ui/.vscode
+src/ui/.idea
+src/ui/.vscode
 *.suo
 *.ntvs*
 *.njsproj
