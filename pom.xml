@@ -54,27 +54,51 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
+
 			<plugin>
-				<artifactId>exec-maven-plugin</artifactId>
-				<groupId>org.codehaus.mojo</groupId>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.7.6</version>
+
 				<executions>
 					<execution>
-						<id>npm build the frontend</id>
-						<phase>generate-resources</phase>
+						<id>Install node and npm</id>
 						<goals>
-							<goal>exec</goal>
+							<goal>install-node-and-npm</goal>
 						</goals>
+						<phase>generate-resources</phase>
 						<configuration>
-							<workingDirectory>src/ui</workingDirectory>
-							<executable>npm</executable>
-							<arguments>
-								<argument>run</argument>
-								<argument>build</argument>
-							</arguments>
+							<nodeVersion>${node.version}</nodeVersion>
+							<npmVersion>${npm.version}</npmVersion>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>run build</arguments>
 						</configuration>
 					</execution>
 				</executions>
+				<configuration>
+					<nodeVersion>${node.version}</nodeVersion>
+					<workingDirectory>src/ui</workingDirectory>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -147,4 +171,28 @@
 						<configuration>
 							<arguments>install</arguments>
 						</configuration>
-					</execution> -->
+					</execution>
+
+			<plugin>
+				<artifactId>exec-maven-plugin</artifactId>
+				<groupId>org.codehaus.mojo</groupId>
+				<executions>
+					<execution>
+						<id>npm build the frontend</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<workingDirectory>src/ui</workingDirectory>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+-->
