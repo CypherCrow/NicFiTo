@@ -54,28 +54,6 @@
 					<target>1.8</target>
 				</configuration>
 			</plugin>
-			
-			<plugin>
-				<artifactId>exec-maven-plugin</artifactId>
-				<groupId>org.codehaus.mojo</groupId>
-				<executions>
-					<execution>
-						<id>npm build the frontend</id>
-						<phase>generate-resources</phase>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<configuration>
-							<workingDirectory>src/ui</workingDirectory>
-							<executable>npm</executable>
-							<arguments>
-								<argument>run</argument>
-								<argument>build</argument>
-							</arguments>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 
 			<plugin>
 				<groupId>com.github.eirslett</groupId>
@@ -103,6 +81,17 @@
 						<phase>generate-resources</phase>
 						<configuration>
 							<arguments>install</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>run build</arguments>
 						</configuration>
 					</execution>
 				</executions>
@@ -182,4 +171,28 @@
 						<configuration>
 							<arguments>install</arguments>
 						</configuration>
-					</execution> -->
+					</execution>
+
+			<plugin>
+				<artifactId>exec-maven-plugin</artifactId>
+				<groupId>org.codehaus.mojo</groupId>
+				<executions>
+					<execution>
+						<id>npm build the frontend</id>
+						<phase>generate-resources</phase>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<configuration>
+							<workingDirectory>src/ui</workingDirectory>
+							<executable>npm</executable>
+							<arguments>
+								<argument>run</argument>
+								<argument>build</argument>
+							</arguments>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+
+-->
