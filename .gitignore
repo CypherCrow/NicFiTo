@@ -52,6 +52,7 @@ src/ui/pnpm-debug.log*
 # Editor directories and files
 src/ui/.idea
 src/ui/.vscode
+src/ui/.cache
 *.suo
 *.ntvs*
 *.njsproj
