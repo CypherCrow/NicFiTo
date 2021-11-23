@@ -53,6 +53,7 @@ src/ui/pnpm-debug.log*
 src/ui/.idea
 src/ui/.vscode
 src/ui/.cache
+src/ui/node_modules
 *.suo
 *.ntvs*
 *.njsproj

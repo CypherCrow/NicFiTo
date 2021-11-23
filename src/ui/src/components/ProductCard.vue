@@ -29,8 +29,8 @@ div#productCard {
     flex-direction: column;
     width: 300px;
     height: 300px; 
-    border-radius: 10px; 
-    background-color: grey;
+    border-radius: 6px; 
+    background-color: rgb(202, 200, 200);
     justify-content: center;
     align-items: center;
 }
@@ -42,7 +42,8 @@ div#cardContent {
 div#productCard:hover {
     -webkit-box-shadow: 4px red; 
     box-shadow: 4px red; 
-    transition-duration: 0.3;
+    border: 3px solid red; 
+    transition-duration: 0.5;
 }
 
 </style>

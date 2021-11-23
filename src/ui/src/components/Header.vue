@@ -11,6 +11,7 @@
                 <li>Comics</li>
                 <li>TV Series</li>
                 <li>Movies</li>
+                <li><router-link to="/about">About</router-link></li>
             </ul>
         </div>
     </div> 
