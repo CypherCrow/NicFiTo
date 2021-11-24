@@ -35,8 +35,6 @@ src/ui/.vscode/
 
 .DS_Store
 src/ui/node_modules
-src/ui/node
-src//ui//dist
 
 
 # local env files
@@ -53,7 +51,9 @@ src/ui/pnpm-debug.log*
 src/ui/.idea
 src/ui/.vscode
 src/ui/.cache
+src/ui/node
 src/ui/node_modules
+src/ui/dist
 *.suo
 *.ntvs*
 *.njsproj
