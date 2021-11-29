@@ -1,0 +1,1 @@
+Map out JSON object for books, comics, tv series, and movies.
