@@ -15,7 +15,7 @@
             <div id="lastTwoFields">
 
                 <label for="type">Type</label> 
-                <select id="type" name="type"> 
+                <select id="type" name="type" v-model="type"> 
                     <option value="novel">Novel</option> 
                     <option value="novella">Novella</option> 
                     <option value="novellette">Novellette</option>
@@ -47,7 +47,9 @@ export default {
     data(){
         return {
             title: '', 
-            synopsis: '',
+            synopsis: '', 
+            //include an author field
+            type: '', 
             startingPrice: 0.00, 
             result: 'Nothing yet :('
         }
@@ -57,7 +59,7 @@ export default {
             e.preventDefault()
 
             if(this.title && this.synopsis && this.startingPrice)
-                this.result = "SUCCESS! :)"
+                this.result = `{\n\ttitle: ${this.title}\nsynopsis: ${this.synopsis}\ntype: ${this.type}\nstartingPrice: ${this.startingPrice}}`
         }
     }
 }
