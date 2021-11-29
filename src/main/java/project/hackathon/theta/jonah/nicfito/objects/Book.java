@@ -1,7 +1,7 @@
 package project.hackathon.theta.jonah.nicfito.objects; 
 
-import org.springframeowkr.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("book")
 public class Book {
