@@ -51,7 +51,7 @@ public class NicFiToApplication implements CommandLineRunner{
 	public void run(String...args){
 		System.out.println("-------------CREATE BOOKS-------------------------------\n");
 		createBooks();
-		System.out.println("\n----------------SHOW ALL OOKS---------------------------\n");
+		System.out.println("\n----------------SHOW ALL BOOKS---------------------------\n");
 		showAllBooks();
 		System.out.println("\n--------------GET ITEM BY NAME-----------------------------------\n");
 		getBookByTitle("Black Order"); 
