@@ -9,8 +9,13 @@ import project.hackathon.theta.jonah.nicfito.objects.Book;
 
 public interface BookRepository extends MongoRepository<Book, String>{
     
-    @Query("{title: }")
+    @Query("{title: '?0'}")
     Book findByTitle(String title); 
-    Book findBySynopsis(String synopsis); 
-    List<Book> findAll(String category); 
+
+    @Query("{type: '?0'}")
+    Book findByType(String type); 
+
+    @Query("{id: '?0'}")
+    List<Book> findAll(String id);
+
 }

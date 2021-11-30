@@ -14,11 +14,24 @@ public class Book {
 
     public Book() {}
 
-    public Book(String title, String type, String synopsis){
+    public Book(String id, String title, String type, String synopsis){
+        this.id = id;
         this.title = title; 
         this.type = type;
         this.synopsis = synopsis; 
     } 
+
+    public String getTitle(){
+        return this.title;
+    }
+
+    public String getType(){
+        return this.type; 
+    }
+
+    public String getSynopsis(){
+        return this.synopsis;
+    }
 
     @Override 
     public String toString() {
