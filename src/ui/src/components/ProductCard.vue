@@ -33,6 +33,7 @@ div#productCard {
     background-color: rgb(202, 200, 200);
     justify-content: center;
     align-items: center;
+    margin: 0 10px 10px 15px; 
 }
 
 div#cardContent {

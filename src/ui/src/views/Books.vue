@@ -2,12 +2,14 @@
     <div> 
         <Header /> 
 
-        <div id="booksContent">
+        <div id="storeContent">
             <div id="productsSection">
                 <ProductCard title="Something" text="something something" price="273.12 Theta" /> 
             </div> 
 
-            <StoreSidebar />
+            <div id="sidebar">
+                <StoreSidebar />
+            </div>
         </div>
     </div> 
 </template>
@@ -22,17 +24,12 @@ export default {
     components: {
         Header, ProductCard, StoreSidebar
     }, 
-    methods: {
-        create(){
-            this.$router.push({ path: '/books/new' })
-        }
-    }
 }
 </script>
 
 <style scoped>
 
-div#booksContent {
+div#storeContent {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
@@ -40,8 +37,12 @@ div#booksContent {
 
 div#productsSection {
     display: flex; 
-    padding: 1.2em 12.3em; 
+    padding: 0.2em 12.3em; 
     flex-direction: row;
+}
+
+div#sidebar {
+    float: right; 
 }
 
 </style>

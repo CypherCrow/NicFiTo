@@ -36,6 +36,9 @@
         </select>
         <h4 class="sidebarHeader">Search Bar</h4>
         <input type="text" id="search" name="search" placeholder="Search for product title" v-model="searchValue" /> 
+        <br> 
+        <h4 class="sidebarHeader">New Book</h4>
+        <button @click="redirectToNewBook()">Upload Here!</button>
     </div>
 </template>
 
@@ -52,7 +55,11 @@ export default {
             searchValue: ''
         }
     }, 
-    methods: {}, 
+    methods: {
+        redirectToNewBook(){
+            this.$router.push('/books/new')
+        }, 
+    }, 
 }
 
 </script> 

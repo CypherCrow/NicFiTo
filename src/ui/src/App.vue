@@ -19,4 +19,9 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
+header {
+    margin: 40px 0px;
+    font-size: 30px;  
+}
 </style>

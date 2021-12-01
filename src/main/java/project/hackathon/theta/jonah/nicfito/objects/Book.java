@@ -1,21 +1,31 @@
 package project.hackathon.theta.jonah.nicfito.objects; 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document("book")
+@Document(collection = "books")
 public class Book {
-    @Id
-    private String id; 
 
+    @Transient
+    public static final String SEQUENCE_STRING = "books_sequence"; 
+
+    @Id
+    private long id; 
+
+    @Indexed
     private String title;
-    private String type; 
+    @Indexed
+    private String type;
     private String synopsis;
 
-    public Book() {}
+    public Book() { 
+        super(); 
+    }
 
-    public Book(String id, String title, String type, String synopsis){
-        this.id = id;
+    public Book(String title, String type, String synopsis){
+        super(); 
         this.title = title; 
         this.type = type;
         this.synopsis = synopsis; 
@@ -31,6 +41,14 @@ public class Book {
 
     public String getSynopsis(){
         return this.synopsis;
+    }
+
+    public void setId(long id){
+        this.id = id;
+    }
+
+    public long getId(){
+        return this.id; 
     }
 
     @Override 

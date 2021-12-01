@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 import Header from '../components/Header.vue'
 
 export default {
@@ -19,11 +21,9 @@ export default {
         }
     }, 
     mounted(){
-        fetch("/api/messages/hello")
-            .then((response) => response.text())
-            .then((data) => {
-                this.msg = data;
-            })
+        axios.get('http://localhost:8080/api/message/hello')
+            .then(response => this.msg = response.data)
+            .catch(error => this.msg = error)
     },
 }
 </script>

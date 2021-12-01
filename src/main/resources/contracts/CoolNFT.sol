@@ -224,7 +224,7 @@ library EnumerableSet {
     }
 
     function at(AddressSet storage set, uint256 index) internal view returns (address) {
-        return address(uint256(_at(set._inner, index)));
+        return address(uint160(uint256(_at(set._inner, index))));
     }
 
     struct UintSet {
@@ -365,15 +365,15 @@ library EnumerableMap {
 
     function at(UintToAddressMap storage map, uint256 index) internal view returns (uint256, address) {
         (bytes32 key, bytes32 value) = _at(map._inner, index);
-        return (uint256(key), address(uint256(value)));
+        return (uint256(key), address(uint160(uint256(value))));
     }
 
     function get(UintToAddressMap storage map, uint256 key) internal view returns (address) {
-        return address(uint256(_get(map._inner, bytes32(key))));
+        return address(uint160(uint256(_get(map._inner, bytes32(key)))));
     }
 
     function get(UintToAddressMap storage map, uint256 key, string memory errorMessage) internal view returns (address) {
-        return address(uint256(_get(map._inner, bytes32(key), errorMessage)));
+        return address(uint160(uint256(_get(map._inner, bytes32(key), errorMessage))));
     }
 }
 
@@ -396,7 +396,7 @@ library Strings {
         uint256 index = digits - 1;
         temp = value;
         while (temp != 0) { 
-            buffer[index--] = byte(uint8(48 + temp % 10));
+            buffer[index--] = bytes1(uint8(48 + temp % 10));
             temp /= 10;
         }
         return string(buffer);

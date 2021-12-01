@@ -20,7 +20,7 @@ const store = createStore({
         movies: [],
     }, 
     mutations: {
-        add_prose(type, title, price){
+        addProse(type, title, price){
 
             let newProse = { 'title': title, 'price': price }
 
@@ -36,7 +36,7 @@ const store = createStore({
                 this.state.prose.novels.append(newProse)
 
         }, 
-        add_comic(type, title, price){
+        addComic(type, title, price){
 
             let newComic = { 'title': title, 'price': price }
 
@@ -44,7 +44,13 @@ const store = createStore({
                 this.state.comics.regular.append(newComic)
             if(type === 'manga')
                 this.state.comics.manga.append(newComic)
-        }
+        }, 
+        addMovie(type, title, price){
+
+            let newMovie = { 'title': title, 'price': price }
+
+            this.state.comics.movies.append(newMovie)
+        },
     }, 
     actions: {}, 
     getters: {}, 

@@ -1,6 +1,7 @@
 package project.hackathon.theta.jonah.nicfito.repository; 
 
-import java.util.List; 
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.mongodb.repository.MongoRepository; 
 import org.springframework.data.mongodb.repository.Query;
@@ -14,6 +15,9 @@ public interface BookRepository extends MongoRepository<Book, String>{
 
     @Query("{type: '?0'}")
     Book findByType(String type); 
+
+    @Query("{id: '?0'}")
+    Optional<Book> findById(String id);
 
     @Query("{id: '?0'}")
     List<Book> findAll(String id);
