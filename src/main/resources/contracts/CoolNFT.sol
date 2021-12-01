@@ -395,7 +395,7 @@ library Strings {
         bytes memory buffer = new bytes(digits);
         uint256 index = digits - 1;
         temp = value;
-        while (temp != 0) {
+        while (temp != 0) { 
             buffer[index--] = byte(uint8(48 + temp % 10));
             temp /= 10;
         }

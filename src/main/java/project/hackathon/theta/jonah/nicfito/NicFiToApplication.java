@@ -48,7 +48,10 @@ public class NicFiToApplication implements CommandLineRunner{
 		return "";
 	}
 
-	public void run(String...args){
+	public void run(String...args) throws Exception {
+
+		System.out.println("-------------RESETTING 'BOOK' REPO-------------------------------\n");
+		bookRepo.deleteAll();
 		System.out.println("-------------CREATE BOOKS-------------------------------\n");
 		createBooks();
 		System.out.println("\n----------------SHOW ALL BOOKS---------------------------\n");
