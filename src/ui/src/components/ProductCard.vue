@@ -5,8 +5,9 @@
         </div>
 
         <div id="cardContent"> 
+            <p>{{type}}</p>
             <p>{{ text }}</p>
-            <p>{{ price }}</p> 
+            <p id="price">{{ price }} THETA</p> 
         </div>
     </div>
 </template>
@@ -17,6 +18,7 @@ export default {
     props: {
         title: String, 
         text: String,
+        type: String, 
         price: String
     }
 }
@@ -37,7 +39,11 @@ div#productCard {
 }
 
 div#cardContent {
-    justify-content: center;
+    justify-content: space-around;
+}
+
+p#price {
+    float: right; 
 }
 
 div#productCard:hover {

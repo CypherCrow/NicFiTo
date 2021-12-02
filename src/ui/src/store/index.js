@@ -2,54 +2,31 @@ import { createStore } from 'vuex'
 
 const store = createStore({
     state: {
-        prose: [
-            poems: [], 
-            shortStories: [],
-            novelettes: [], 
-            novellas: [], 
-            novels: [], 
-        ], 
-        comics: [
-            regular: [], 
-            manga: [], 
-        ],
-        television: [
-            live: [], 
-            animated: [],
-        ], 
+        books: [], 
+        comics: [],
+        television: [], 
         movies: [],
     }, 
     mutations: {
-        addProse(type, title, price){
+        addBook(state, title, type, synopsis, price){
+            let newProse = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
 
-            let newProse = { 'title': title, 'price': price }
-
-            if(type === 'poem')
-                this.state.prose.poems.append(newProse)
-            if(type === 'short_story')
-                this.state.prose.shortStories.append(newProse)
-            if(type === 'novelette')
-                this.state.prose.novelettes.append(newProse)
-            if(type === 'novella')
-                this.state.prose.novellas.append(newProse)
-            if(type === 'novel')
-                this.state.prose.novels.append(newProse)
-
+            this.state.books.push(newProse) 
         }, 
-        addComic(type, title, price){
+        addComic(state, title, type, synopsis, price){
+            let newComic = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
 
-            let newComic = { 'title': title, 'price': price }
-
-            if(type === 'regular')
-                this.state.comics.regular.append(newComic)
-            if(type === 'manga')
-                this.state.comics.manga.append(newComic)
+            this.state.comics.push(newComic)
         }, 
-        addMovie(type, title, price){
+        addTelevision(state, title, type, synopsis, price){
+            let newTelevision = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
 
-            let newMovie = { 'title': title, 'price': price }
+            this.state.television.push(newTelevision)
+        },
+        addMovie(title, type, synopsis, price){
+            let newMovie = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
 
-            this.state.comics.movies.append(newMovie)
+            this.state.movies.push(newMovie)
         },
     }, 
     actions: {}, 

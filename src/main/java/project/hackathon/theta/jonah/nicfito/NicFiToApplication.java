@@ -43,44 +43,10 @@ public class NicFiToApplication implements CommandLineRunner{
 		System.out.println("Book uploads complete...");  
 	}
 
-	public void showAllBooks(){
-		bookRepo.findAll().forEach(book -> System.out.println(getBookDetails(book)));
-	}
-
-	public void getBookByTitle(String title){
-		System.out.println("Getting book by title: " + title);
-		Book book = bookRepo.findByTitle(title);
-		System.out.println(getBookDetails(book));
-	}
-
-	void createBook(String title, String type, String synopsis){
-		Book book = new Book(title, type, synopsis);
-		book.setId(seqeunceGenerator.getSequenceNumber(Book.SEQUENCE_STRING));
-		bookRepo.save(book); 
-	}
-
-	public String getBookDetails(Book book){
-		System.out.println(
-			"Book title: " + book.getTitle() + 
-			", \nBook type: " + book.getType() + 
-			", \nBook synopsis: " + book.getSynopsis()
-		);
-
-		return "";
-	}
-
 	public void run(String...args) throws Exception {
 		System.out.println("-------------RESETTING 'BOOK' REPO-------------------------------\n");
 		bookRepo.deleteAll();
 		System.out.println("-------------CREATE BOOKS-------------------------------\n");
 		createBooks();
-		System.out.println("\n----------------SHOW ALL BOOKS---------------------------\n");
-		showAllBooks();
-		System.out.println("\n--------------GET ITEM BY NAME-----------------------------------\n");
-		getBookByTitle("Black Order"); 
-		System.out.println("\n--------------ADDING BOOK-----------------------------------\n");
-		createBook("The Circle", "novel", "About mass surveillance and privacy involving a big tech company"); 
-		System.out.println("\n--------------GET ADDED BOOK-----------------------------------\n");
-		getBookByTitle("The Circle");
 	}
 }

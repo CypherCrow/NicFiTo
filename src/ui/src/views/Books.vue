@@ -3,8 +3,8 @@
         <Header /> 
 
         <div id="storeContent">
-            <div id="productsSection">
-                <ProductCard title="Something" text="something something" price="273.12 Theta" /> 
+            <div id="productsSection" v-for="book in books" :key="book.id">
+                <ProductCard :title="book.title" :text="book.synopsis" :type="book.type" :price="book.price" />
             </div> 
 
             <div id="sidebar">
@@ -24,6 +24,14 @@ export default {
     components: {
         Header, ProductCard, StoreSidebar
     }, 
+    data(){
+        return {
+            books: []
+        }
+    }, 
+    mounted() {
+        this.book = [];
+    }
 }
 </script>
 
@@ -31,7 +39,7 @@ export default {
 
 div#storeContent {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
     align-items: center;
 }
 

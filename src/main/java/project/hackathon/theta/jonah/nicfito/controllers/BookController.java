@@ -17,12 +17,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import project.hackathon.theta.jonah.nicfito.objects.Book;
 import project.hackathon.theta.jonah.nicfito.repository.BookRepository;
+import project.hackathon.theta.jonah.nicfito.services.SequenceGeneratorService;
 
 @RequestMapping("/api")
 public class BookController {
     
     @Autowired
     BookRepository bookRepo;
+
+    @Autowired
+    private SequenceGeneratorService sequenceGenerator; 
 
     @GetMapping("/books")
     public List<Book> getAllBooks(){
@@ -45,4 +49,16 @@ public class BookController {
     public Book createBook(@Validated @RequestBody Book book){
         return bookRepo.save(book); 
     }
+
+	public String[] getBookDetails(Book book){
+		String[] details = { book.getTitle(), book.getType(), book.getSynopsis()}; 
+        return details; 
+    }
+
+   public void createBook(String title, String type, String synopsis){
+		Book book = new Book(title, type, synopsis);
+		book.setId(sequenceGenerator.getSequenceNumber(Book.SEQUENCE_STRING));
+		bookRepo.save(book); 
+	}
+
 }

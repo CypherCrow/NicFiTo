@@ -24,4 +24,9 @@ header {
     margin: 40px 0px;
     font-size: 30px;  
 }
+
+button {
+  border-radius: 5; 
+  background: rgb(165, 181, 146); 
+}
 </style>
