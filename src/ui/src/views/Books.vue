@@ -3,7 +3,7 @@
         <Header /> 
 
         <div id="storeContent">
-            <div id="productsSection" v-for="book in books" :key="book.id">
+            <div id="productsSection" v-for="book in $store.state.books" :key="book.id">
                 <ProductCard :title="book.title" :text="book.synopsis" :type="book.type" :price="book.price" />
             </div> 
 
@@ -30,7 +30,7 @@ export default {
         }
     }, 
     mounted() {
-        this.book = [];
+        $store.dispatch('addAllBooks')
     }
 }
 </script>

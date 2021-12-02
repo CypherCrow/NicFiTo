@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import axios from 'axios'
 
 const store = createStore({
     state: {
@@ -9,7 +10,7 @@ const store = createStore({
     }, 
     mutations: {
         addBook(state, title, type, synopsis, price){
-            let newProse = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
+            let newBook = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
 
             this.state.books.push(newProse) 
         }, 
@@ -29,8 +30,27 @@ const store = createStore({
             this.state.movies.push(newMovie)
         },
     }, 
-    actions: {}, 
+    actions: {
+        addBookAction({ commit }, newBook){
+            commit('addBook')
+
+            axios.post('http://localhost:8080/api/books', newBook)
+                .then(response => { console.log(response) })
+                .catch(error => console.log(error))
+        }, 
+        addAllBooks({ commit }){
+            axios.get('http://localhost:8080/api/books')
+                .then(response => {
+                    console.log(response)
+                    response.data.forEach((book) => {
+                        commit('addBook', book.title, book.type, book.synopsis, book.price)
+                    })
+                })
+                .catch(error => console.log(error))
+        }
+    },
     getters: {}, 
     modules: {}, 
 })
 
+export default store

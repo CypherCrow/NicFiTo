@@ -1,7 +1,7 @@
 <template>
     <div> 
         <div id="message">
-            <p>Your product has been uploaded! HOORAY!</p>
+            <p>Your product has been uploaded, and an NFT token is given to it! HOORAY!</p>
             <br/>
             <p>Redirecting in {{ countDown }}</p>
         </div>

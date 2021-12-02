@@ -71,8 +71,15 @@ export default {
             if(!this.price)
                 this.result = "It ain't an NFT is there is no price."
 
-            if(this.title && this.synopsis && this.price)
+            if(this.title && this.type && this.synopsis && this.price){
+               this.$store.dispatch('addBookAction', {
+                   'title': title, 
+                   'type': type, 
+                   'synopsis': synopsis, 
+                   'price': price
+               })
                this.$router.push('/complete')
+            }
         }
     }
 }
