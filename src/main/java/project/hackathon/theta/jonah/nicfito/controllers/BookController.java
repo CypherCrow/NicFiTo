@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 //import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import project.hackathon.theta.jonah.nicfito.objects.Book;
 import project.hackathon.theta.jonah.nicfito.repository.BookRepository;
 import project.hackathon.theta.jonah.nicfito.services.SequenceGeneratorService;
 
+@RestController
 @RequestMapping("/api")
 public class BookController {
     

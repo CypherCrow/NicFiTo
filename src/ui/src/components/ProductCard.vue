@@ -39,7 +39,7 @@ div#productCard {
 }
 
 div#cardContent {
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 p#price {

@@ -12,7 +12,7 @@ const store = createStore({
         addBook(state, title, type, synopsis, price){
             let newBook = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
 
-            this.state.books.push(newProse) 
+            this.state.books.push(newBook) 
         }, 
         addComic(state, title, type, synopsis, price){
             let newComic = { 'title': title, 'type': type, 'price': price, 'synopsis': synopsis }
@@ -32,13 +32,15 @@ const store = createStore({
     }, 
     actions: {
         addBookAction({ commit }, newBook){
-            commit('addBook')
+            commit('addBook', newBook)
 
             axios.post('http://localhost:8080/api/books', newBook)
                 .then(response => { console.log(response) })
                 .catch(error => console.log(error))
         }, 
-        addAllBooks({ commit }){
+    },
+    getters: {
+        getBooks({ commit }){
             axios.get('http://localhost:8080/api/books')
                 .then(response => {
                     console.log(response)
@@ -47,9 +49,10 @@ const store = createStore({
                     })
                 })
                 .catch(error => console.log(error))
+
+            return this.state.books
         }
-    },
-    getters: {}, 
+    }, 
     modules: {}, 
 })
 

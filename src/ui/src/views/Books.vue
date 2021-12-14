@@ -3,7 +3,7 @@
         <Header /> 
 
         <div id="storeContent">
-            <div id="productsSection" v-for="book in $store.state.books" :key="book.id">
+            <div id="productsSection" v-for="book in this.books" :key="book.id">
                 <ProductCard :title="book.title" :text="book.synopsis" :type="book.type" :price="book.price" />
             </div> 
 
@@ -18,11 +18,23 @@
 import Header from '../components/Header.vue'
 import ProductCard from '../components/ProductCard.vue'
 import StoreSidebar from '../components/StoreSidebar.vue'
+import axios from 'axios'
 
 export default {
     name: 'Books', 
     components: {
         Header, ProductCard, StoreSidebar
+    }, 
+    /* computed: {
+        books(){
+            books = $store.getters.getBooks()
+        }
+    }, */
+    methods: {
+        getBooks() {
+            axios.get('http://localhost:8080/api/books')
+                .then(response => this.books = response.data)
+        },
     }, 
     data(){
         return {
@@ -30,7 +42,8 @@ export default {
         }
     }, 
     mounted() {
-        $store.dispatch('addAllBooks')
+        this.getBooks()
+        //$store.dispatch('addAllBooks')
     }
 }
 </script>
