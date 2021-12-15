@@ -3,7 +3,7 @@
         <Header /> 
 
         <div id="storeContent">
-            <div id="productsSection" v-for="book in this.books" :key="book.id">
+            <div id="product" v-for="book in this.books" :key="book.id">
                 <ProductCard :title="book.title" :text="book.synopsis" :type="book.type" :price="book.price" />
             </div> 
 
@@ -56,9 +56,9 @@ div#storeContent {
     align-items: center;
 }
 
-div#productsSection {
+div#product {
     display: flex; 
-    padding: 0.2em 12.3em; 
+    padding: 0.2em; 
     flex-direction: row;
 }
 
