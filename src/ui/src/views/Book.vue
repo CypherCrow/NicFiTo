@@ -46,6 +46,6 @@ export default {
             this.type = data.type
             this.synopsis = data.synopsis
         })
-    }
+    }, 
 }
 </script>
